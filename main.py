@@ -11,7 +11,9 @@ class Player:
 
 class Map:
     def __init__(self, name_of_place):
-        self.name_of_place = name_of_place
+        self.name_of_place = place1, place2, place3, place3, place4, place5, place6, place7, place8, place9, place10
+        if 
+
 
 class Item:
     def __init__(self, name_of_item):
