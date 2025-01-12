@@ -3,12 +3,15 @@ import random
 
 class Game_play:
 
-    def __init__(self, rows, columns, num_of_enemies):
+    def __init__(self, rows, columns, num_of_enemies, num_of_items, num_of_npcs):
         self.map = Map(rows, columns)
         self.player_location = [0,0]
         self.found_chest = False
         self.map.chest_location(random.randint(0,rows - 1), random.randint(0, columns - 1))
         self.map.enemy_location(num_of_enemies)
+        self.map.item_location(num_of_items)
+        self.map.npc_location(num_of_npcs)
+
 
     def player_movement(self, direction):
         if direction == "w" and self.player_location[0] > 0:
@@ -32,10 +35,17 @@ class Game_play:
 
         if self.player_location == self.map.chest_location:
             self.found_chest = True
+            print("You have found a chest!!!")
         
-        elif self.player_location == self.map.enemy_location:
+        elif self.player_location == "(E)":
             print("You have encountered an enemy")
         
+        elif self.player_location == self.map.npc_location:
+            print("You have encountered an unknown being???")
+
+        elif self.player_location == self.map.item_location:
+            print("There is a strange item in front of you")
+            
         else:
             print(f"You are at coordinate ({row} , {column})")
 
@@ -48,7 +58,7 @@ class Game_play:
             self.player_movement(movement)
             self.check_player_location()
 
-g1 = Game_play(10,10,5)
+g1 = Game_play(5,5,5,5,2)
 g1.gameplay()
 
 

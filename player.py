@@ -20,8 +20,8 @@ class Player:
         if self.health > 10:
             return self.name + "is fighting " + new_enemy
         
-    def open_chest(self):
-        return self.name + "has opened a chest"
+    def use_item(self):
+        return self.name + "has used ..."
     
     def talk(self, new_npc):
         return self.name + "is talking to " + new_npc

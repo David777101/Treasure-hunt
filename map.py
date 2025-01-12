@@ -19,14 +19,32 @@ class Map:
                 self.grid[row][column] = "(E)"
                 enemy_locations += 1
     
+    def npc_location(self, num_of_npcs):
+        npc_locations = 0
+        while npc_locations < num_of_npcs:
+            row = random.randint(0,self.rows - 1)
+            column = random.randint(0,self.columns - 1)
+            if self.grid[row][column] == "[]":
+                self.grid[row][column] = "(^)"
+                npc_locations += 1
+
+    def item_location(self, num_of_items):
+        item_locations = 0
+        while item_locations < num_of_items:
+            row = random.randint(0,self.rows - 1)
+            column = random.randint(0,self.columns - 1)
+            if self.grid[row][column] == "[]":
+                self.grid[row][column] = "(*)"
+                item_locations += 1
+
+
     def display_map(self):
         for row in self.grid:
             print(" ".join(row))
 
 
 
-m1 = Map(10,10)
-m1.display_map()
+
 
 
 
